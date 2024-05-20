@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,13 @@ Route::get('/features', [ProductController::class, 'features'])->name('features'
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
+
+Route::prefix('admin')->group(
+    function ()
+    {
+        Route::get('/dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index');
+        Route::get('/products',  [AdminProductController::class, 'index'])->name('admin.product.index');
+        Route::get('/products/create',  [AdminProductController::class, 'create'])->name('admin.product.create');
+        Route::get('/products/store',  [AdminProductController::class, 'store'])->name('admin.product.store');
+    }
+);
