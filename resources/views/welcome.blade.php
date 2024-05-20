@@ -3,7 +3,7 @@
 @include('index.hero')
 {{-- Product Categories --}}
 @include('index.product')
-{{-- 50% Offf --}}
+{{-- 50% Offff --}}
 @include('index.off')
 @include('index.isotopes')
 {{-- Free Shipping --}}
