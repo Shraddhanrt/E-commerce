@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +23,10 @@ Route::get('/features', [ProductController::class, 'features'])->name('features'
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
+
+Route::prefix('admin')->group(
+    function ()
+    {
+        Route::get('dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index');
+    }
+);
