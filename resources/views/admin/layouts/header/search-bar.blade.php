@@ -8,7 +8,7 @@
             <div class="navbar-brand">
                 <!-- Logo icon -->
                 <a href="{{ route('admin.dashboard.index') }}">
-                    {{env('APP_NAME')}}
+                    {{ env('APP_NAME') }}
                 </a>
             </div>
         </div>
