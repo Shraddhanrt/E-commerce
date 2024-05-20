@@ -2,13 +2,12 @@
 @include('index.navbar')
 
 <section>
-    <img src="{{ asset('images/bg-02.jpg.webp') }}" class="w-100" alt="Image" style="height: 300px;">
-    <div class="d-flex card-img-overlay text-center justify-content-center flex-column" style="margin-top: -150px">
+    <img src="{{ asset('images\background3.jpg') }}" class="w-100" alt="Image" style="height: 300px;">
+    <div class="d-flex card-img-overlay text-center justify-content-center flex-column">
         <h4 class="txt" style="color:white; font-family: Poppins-Bold;font-size: 50px;line-height: 1.1;">
             About Us</h4>
     </div>
 </section>
-
 <section class="abt-body">
     <div class="container">
         <div class="row">
@@ -45,7 +44,7 @@
             </div>
             <div class="col-md-5">
                 <div class="abt-img-container position-relative"> <!-- Added position-relative class -->
-                    <img src="{{ asset('images/about-01.jpg.webp') }}" class="w-100"
+                    <img src="{{ asset('images/about-01.jpg.webp') }}" class=" "
                         style="vertical-align: middle; padding-bottom: 20px; padding-left: 20px;">
                     <div class="bor position-absolute bottom-0 start-0 end-0" style="padding-top: 20px;"></div>
                     <!-- Added position-absolute and utility classes -->
@@ -54,20 +53,10 @@
         </div>
     </div>
 </section>
-
 <section class="abt-body">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
-                <div class="abt-img-container position-relative"> <!-- Added position-relative class -->
-                    <img src="{{ asset('images/about-02.jpg.webp') }}" class="w-100"
-                        style="vertical-align: middle; padding-bottom: 20px; padding-left: 20px;">
-                    <div class="bor position-absolute bottom-0 start-0 end-0" style="padding-top: 20px;"></div>
-                    <!-- Added position-absolute and utility classes -->
-                </div>
-            </div>
-            <div class="col-md-7">
-                <h3>Our Mission</h3>
+            <div class="col-md-7 order-2 order-lg-2 order-md-2 order-sm-1">
                 <p style="text-align: justify !important;">
                     Lorem ipsum dolor sit amet, consectetur adipiscing
                     elit.
@@ -97,8 +86,17 @@
                     ligula.
                 </p>
             </div>
+            <div class="col-md-5 order-1 order-lg-1 order-md-1 order-sm-2 ">
+                <div class="abt-img-container position-relative"> <!-- Added position-relative class -->
+                    <img src="{{ asset('images/about-02.jpg.webp') }}" class=" "
+                        style="vertical-align: middle; padding-bottom: 20px; padding-left: 20px;">
+                    <div class="bor position-absolute bottom-0 start-0 end-0" style="padding-top: 20px;"></div>
+                    <!-- Added position-absolute and utility classes -->
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 
 @include('footer.footer')

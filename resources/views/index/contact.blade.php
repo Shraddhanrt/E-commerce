@@ -2,8 +2,8 @@
 @include('index.navbar')
 
 <section>
-    <img src="{{ asset('images\bg-02.jpg.webp') }}" class="w-100" alt="Image" style="height: 300px;">
-    <div class="d-flex card-img-overlay text-center justify-content-center flex-column" style="margin-top: -150px">
+    <img src="{{ asset('images\background.jpg') }}" class="w-100" alt="Image" style="height: 300px;">
+    <div class="d-flex card-img-overlay text-center justify-content-center flex-column">
         <h4 class="txt" style="color:white; font-family: Poppins-Bold;font-size: 50px;line-height: 1.1; ">
             Contact Us</h4>
     </div>
@@ -62,12 +62,17 @@
 </section>
 
 <div class="container mt-5">
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14073.217618748768!2d84.09125505000002!3d28.13722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1708419568003!5m2!1sen!2snp"
-            width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="embed-responsive embed-responsive-16by9 mx-0">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14073.217618748768!2d84.09125505000002!3d28.13722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1708419568003!5m2!1sen!2snp"
+                    width="1100" height="450" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
     </div>
 </div>
+
 
 @include('footer.footer')

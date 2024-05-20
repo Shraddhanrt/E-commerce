@@ -69,26 +69,29 @@
                  <!-- Grid column -->
                  <hr class="w-100 clearfix d-md-none" />
                  <!-- Grid column -->
-                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 foot">
                      <h6 class="text-uppercase mb-4 font-weight-bold">News Letter</h6>
                      <div class="row">
                          <div class="col-md-6">
                              <div class="row">
-                                 <div class="col-6">
-                                     <div class="input-container">
-                                         <input type="text" placeholder="Email address..">
+                                 <div class="col-lg-12 col-md-12 col-sm-12 footer-email">
+                                     <div class="input-container ">
+                                         <input type="email" class="form-control" id="inputEmail"
+                                             placeholder="Email address..">
                                      </div>
                                      <hr class="w-100">
                                  </div>
+
                              </div>
 
                              <div class="row">
-                                 <div class="col-12">
+                                 <div class="col-lg-12 col-md-12 col-sm-12 footer-button">
                                      <button type="button" class="oval-button mt-4" data-toggle="modal"
                                          data-target="#exampleModalCenter">
                                          Subscribe Us
                                      </button>
                                  </div>
+
 
                              </div>
                          </div>

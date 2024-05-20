@@ -4,12 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/c17b0004ab.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -19,12 +17,13 @@
     {{-- Animation --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    {{-- Isotopes --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+    <!-- Include jQuery and Isotope -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
 
     <title>E-commerce</title>
 </head>
@@ -45,19 +44,14 @@
         });
     </script>
     <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Owl Carousel JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- Owl Carousel Initialization Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
 
     <script>
         $(document).ready(function() {
@@ -89,34 +83,41 @@
     </script>
 
     {{-- home- Isotopes --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var customContainer = jQuery(".iso-container");
-            customContainer.isotope({
-                filter: "*",
-                transitionDuration: "2s",
-                animationOptions: {
-                    duration: 7500,
-                    queue: false
-                },
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+    <script>
+        $(window).on('load', function() {
+            var customContainer = $(".iso-container");
+
+            // Initialize Isotope
+            customContainer.isotope({
+                itemSelector: '.isotope-item',
                 layoutMode: "fitRows",
                 fitRows: {
                     gutter: 0
+                },
+                transitionDuration: "0.5s",
+                animationOptions: {
+                    duration: 7500,
+                    queue: false
                 }
             });
 
-            jQuery("#custom-filter li:first-child > a").addClass("is-checked");
+            // Set initial checked state for filter
+            $("#custom-filter li:first-child > a").addClass("is-checked");
 
-            jQuery("#custom-filter a").click(function() {
-                jQuery("#custom-filter .is-checked").removeClass("is-checked");
-                jQuery(this).addClass("is-checked");
+            // Handling filter clicks
+            $("#custom-filter a").click(function() {
+                $("#custom-filter .is-checked").removeClass("is-checked");
+                $(this).addClass("is-checked");
 
-                var customSelector = jQuery(this).attr("data-filter");
+                var customSelector = $(this).attr("data-filter");
+
+                // Update Isotope with new filter
                 customContainer.isotope({
                     filter: customSelector,
-                    transitionDuration: "2s",
+                    transitionDuration: "0.5s",
                     animationOptions: {
                         duration: 7500,
                         queue: false
@@ -128,30 +129,19 @@
                 });
                 return false;
             });
-        });
-    </script>
-    {{-- Shop New Isotopes --}}
-    <script>
-        $(document).ready(function() {
 
-            $('.grid').isotope({
-                itemSelector: '.grid-item',
-            });
-
-            // filter items on button click
-            $('.filter-button-group').on('click', 'li', function() {
-                var filterValue = $(this).attr('data-filter');
-                $('.grid').isotope({
-                    filter: filterValue
-                });
-                $('.filter-button-group li').removeClass('active');
-                $(this).addClass('active');
-                $('.shop-ex .filters').css('height', $('.shop-ex .filters').height()); // Fix height
+            // Update Isotope on window resize
+            $(window).on('resize', function() {
+                customContainer.isotope('layout');
             });
         });
     </script>
+
+
+
+
     {{-- Add to Cart Modal --}}
-    <script>
+    {{-- <script>
         var thumbnails = document.getElementById("thumbnails");
         var imgs = thumbnails.getElementsByTagName("img");
         var main = document.getElementById("main");
@@ -187,9 +177,70 @@
                 counter = i;
             });
         }
+    </script> --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var thumbnails = document.getElementById("thumbnails");
+            var imgs = thumbnails.getElementsByTagName("img");
+            var main = document.getElementById("main");
+            var counter = 0;
+
+            // Create left and right arrow buttons
+            var leftArrow = document.createElement("button");
+            leftArrow.innerHTML = "&#10094;";
+            leftArrow.className = "arrow arrow-left";
+            leftArrow.addEventListener("click", function() {
+                counter = (counter - 1 + imgs.length) % imgs.length;
+                main.src = imgs[counter].src;
+            });
+
+            var rightArrow = document.createElement("button");
+            rightArrow.innerHTML = "&#10095;";
+            rightArrow.className = "arrow arrow-right";
+            rightArrow.addEventListener("click", function() {
+                counter = (counter + 1) % imgs.length;
+                main.src = imgs[counter].src;
+            });
+
+            // Append arrow buttons to the modal body
+            var modalBody = document.querySelector(".modal-body");
+            modalBody.appendChild(leftArrow);
+            modalBody.appendChild(rightArrow);
+
+            // Add event listener to thumbnail images
+            for (let i = 0; i < imgs.length; i++) {
+                let img = imgs[i];
+                img.addEventListener("click", function() {
+                    main.src = this.src;
+                    counter = i;
+                });
+            }
+        });
     </script>
+    {{-- Navbar --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navbar = document.querySelector('.navbar');
+            var navbarToggle = document.getElementById("navbarToggle");
 
+            // Check initial scroll position
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            }
 
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+
+            navbarToggle.addEventListener("click", function() {
+                navbar.classList.toggle("navbar-bg");
+            });
+        });
+    </script>
 
 </body>
 

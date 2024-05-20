@@ -35,4 +35,8 @@ class ProductController extends Controller
     {
         return  view("index.continuereading");
     }
+    public function newNavbar()
+    {
+        return view('index.navbar2');
+    }
 }
