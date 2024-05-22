@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index'])->name('index');
+Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/home', [ProductController::class, 'index'])->name('index');
 Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
 Route::get('/about', [ProductController::class, 'about'])->name('about');
@@ -32,13 +32,17 @@ Route::prefix('admin')->group(
         Route::get('login',  [AdminAuthController::class, 'index'])->name('admin.login.index');
         Route::post('login',  [AdminAuthController::class, 'login'])->name('admin.login.submit');
         Route::post('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
-
-
-        Route::get('/dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index');
-        Route::get('/products',  [AdminProductController::class, 'index'])->name('admin.product.index');
-        Route::get('/products/create',  [AdminProductController::class, 'create'])->name('admin.product.create');
-        Route::post('/products/store',  [AdminProductController::class, 'store'])->name('admin.product.store');
-        Route::get('/products/{id}/edit',  [AdminProductController::class, 'edit']);
-        Route::get('/products/{id}/delete',  [AdminProductController::class, 'delete']);
+        Route::group(
+            ['middleware' => 'admin'],
+            function ()
+            {
+                Route::get('/dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index');
+                Route::get('/products',  [AdminProductController::class, 'index'])->name('admin.product.index');
+                Route::get('/products/create',  [AdminProductController::class, 'create'])->name('admin.product.create');
+                Route::post('/products/store',  [AdminProductController::class, 'store'])->name('admin.product.store');
+                Route::get('/products/{id}/edit',  [AdminProductController::class, 'edit']);
+                Route::get('/products/{id}/delete',  [AdminProductController::class, 'delete']);
+            }
+        );
     }
 );

@@ -18,7 +18,7 @@ class AdminAuthController extends Controller
         {
             if (Auth::check())
             {
-                if (strtoupper(Auth::User()->role) == 'admin')
+                if (strtoupper(Auth::User()->role) == 'ADMIN')
                 {
                     return redirect()->route('admin.dashboard.index');
                 }
@@ -77,6 +77,7 @@ class AdminAuthController extends Controller
         }
         catch (Exception $e)
         {
+            dd($e);
             Session::flash('error', 'Something went wrong. Please try again !');
             return redirect()->back()->withInput($request->input())
                 ->withErrors($validator->errors());
