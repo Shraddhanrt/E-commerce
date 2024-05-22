@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 Route::get('/home', [ProductController::class, 'index'])->name('index');
+Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
 Route::get('/about', [ProductController::class, 'about'])->name('about');
 Route::get('/features', [ProductController::class, 'features'])->name('features');

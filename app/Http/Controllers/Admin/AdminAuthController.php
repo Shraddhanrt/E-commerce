@@ -37,6 +37,7 @@ class AdminAuthController extends Controller
     {
         try
         {
+            // dd($request->all());
             $validator = Validator::make($request->all(), [
                 'email' => 'required',
                 'password' => 'required',
@@ -57,7 +58,6 @@ class AdminAuthController extends Controller
                     Session::flash('error', 'Your account is not activated yet.');
                     return redirect()->back()->withInput($request->input());
                 }
-
                 Session::flash('success', 'Login Success.');
 
                 if (strtoupper(Auth::User()->role) == 'ADMIN')
@@ -77,7 +77,6 @@ class AdminAuthController extends Controller
         }
         catch (Exception $e)
         {
-            dd($e);
             Session::flash('error', 'Something went wrong. Please try again !');
             return redirect()->back()->withInput($request->input())
                 ->withErrors($validator->errors());
