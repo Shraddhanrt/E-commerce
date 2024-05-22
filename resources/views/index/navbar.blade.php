@@ -1,9 +1,7 @@
 @include('index.home')
 <nav class="navbar navbar-expand-lg sticky-top " id="navbar">
     <div class="container-fluid">
-        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
-            style="background-color:rgb(152, 125, 165); margin-right:-1em; font-size:23px">
+        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color:rgb(152, 125, 165); margin-right:-1em; font-size:23px">
             <i class="fas fa-bars text-white"></i> Menu
         </button>
         <a class="navbar-brand d-none d-lg-block" href="#">E-Commerce</a>
@@ -35,6 +33,11 @@
                     </a>
                 </button>
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                    <a class="icon" href="{{route('login')}}">
+                        <div><i class="fa fa-light fa-user"></i></div>
+                    </a>
+                </button>
+                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                     <a class="icon" href="#">
                         <div><i class=" fa fa-light fa-heart"></i></div>
                     </a>
@@ -44,12 +47,10 @@
                 </button>
             </div>
         </div>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <a class="navbar-brand offcanvas-title" id="offcanvasNavbarLabel" href="#">E-Commerce</a>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"
-                    style="background-color: blueviolet; color:rgb(19, 19, 20)"></button>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="background-color: blueviolet; color:rgb(19, 19, 20)"></button>
             </div>
 
             <div class="offcanvas-body align-items-start!important">
@@ -77,6 +78,11 @@
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="#">
                             <div><i class="fa fa-light fa-search"></i></div>
+                        </a>
+                    </button>
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                        <a class="icon" href="{{route('login')}}">
+                            <div><i class="fa fa-light fa-user"></i></div>
                         </a>
                     </button>
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">

@@ -27,6 +27,7 @@ Route::get('/features', [ProductController::class, 'features'])->name('features'
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
+Route::post('/users/sign-up',  [UserController::class, 'store'])->name('user.store');
 
 Route::prefix('admin')->group(
     function ()

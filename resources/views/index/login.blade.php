@@ -41,20 +41,20 @@
                 <div class="card-body">
                     <h3 class="card-title" style="text-align:center;">Don't have account?Sign up here</h3>
                     <hr class="cart-divider" />
-                    <form action="{{ route('admin.login.submit') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6 mt-3">
-                                <label class="text-dark" for="firstName" name="firstName">First Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your firstname">
+                                <label class="text-dark" for="firstName">First Name</label>
+                                <input type="text" class="form-control" name="firstname" placeholder="Enter your firstname">
                             </div>
                             <div class="col-lg-6 mt-3">
-                                <label class="text-dark" for="firstName" name="firstName">Last Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your lastname">
+                                <label class="text-dark" for="firstName">Last Name</label>
+                                <input type="text" class="form-control" name="lastname" placeholder="Enter your lastname">
                             </div>
                             <div class="col-lg-6 mt-3">
-                                <label class="text-dark" for="email" name="email">Email</label>
-                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <label class="text-dark" for="email">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="Enter your email">
                             </div>
                             <div class="col-lg-6 mt-3">
                                 <label class="text-dark" for="password" name="password">Password</label>
