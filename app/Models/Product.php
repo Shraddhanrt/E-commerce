@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $guraded = [];
+    protected  $fillable = [
+        'name',
+        'description',
+        'cost',
+        'quantity',
+        'image',
+        'active',
+        'featured'
+
+    ];
 }
