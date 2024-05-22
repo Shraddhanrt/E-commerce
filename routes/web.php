@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
@@ -28,6 +29,11 @@ Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('de
 Route::prefix('admin')->group(
     function ()
     {
+        Route::get('login',  [AdminAuthController::class, 'index'])->name('admin.login.index');
+        Route::post('login',  [AdminAuthController::class, 'login'])->name('admin.login.submit');
+        Route::post('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+
         Route::get('/dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index');
         Route::get('/products',  [AdminProductController::class, 'index'])->name('admin.product.index');
         Route::get('/products/create',  [AdminProductController::class, 'create'])->name('admin.product.create');
