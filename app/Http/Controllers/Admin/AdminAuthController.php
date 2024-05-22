@@ -87,6 +87,6 @@ class AdminAuthController extends Controller
     {
         Auth::logout();
         Session::flash('success', 'Logged out Succesfully.');
-        return view('admin.login.index');
+        return redirect()->route('admin.login.index');
     }
 }
