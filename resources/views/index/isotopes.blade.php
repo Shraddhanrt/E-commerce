@@ -12,7 +12,7 @@
                             <li>
                                 <a data-filter="*">All Products</a>
                             </li>
-                            <li>    
+                            <li>
                                 <a data-filter=".item1">Womens</a>
                             </li>
                             <li>
@@ -56,7 +56,7 @@
                                         Cart
                                     </button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog"
+                                    {{-- <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -94,7 +94,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -112,13 +112,12 @@
                                 </div>
                                 <div class="col-md-7 col-12 btn-cart">
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn  shadow-none" data-toggle="modal"
-                                        data-target="#exampleModalLong2"
-                                        style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(80, 72, 81); color:white">
-                                        <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
-                                        To
-                                        Cart</button>
-                                    <!-- Modal -->
+                                    <button type="button" class="btn shadow-none"
+                                        style="font-size: 11px; width: 100%; max-width: 12em; background-color: rgb(80, 72, 81); color: white;"
+                                        onclick="location.href='/product.details'">
+                                        <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add To
+                                        Cart
+                                </button>
 
 
 

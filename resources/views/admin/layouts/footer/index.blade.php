@@ -1,5 +1,5 @@
 <footer class="footer text-center text-muted">
-	All Rights Reserved <b>{{env('APP_NAME')}}</b>. Designed and Developed by Binam Gurung.
+    All Rights Reserved <b>{{ env('APP_NAME') }}</b>.
 </footer>
 
 <script src="{{ asset('assets/backend/js/jquery.min.js') }}"></script>
@@ -18,11 +18,11 @@
 <script src="{{ asset('assets/backend/js/jquery-jvectormap-world-mill-en.js') }}"></script>
 <script src="{{ asset('assets/backend/js/dashboard1.min.js') }}"></script>
 
-<script src="{{asset('assets/backend/js/prism.js')}}"></script>
+<script src="{{ asset('assets/backend/js/prism.js') }}"></script>
 <script src="{{ asset('assets/backend/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/backend/js/sparkline.js') }}"></script>
 <script src="{{ asset('assets/backend/js/datatable-basic.init.js') }}"></script>
 
-<script src="{{asset('assets/backend/js/toastr.min.js')}}"></script>
+<script src="{{ asset('assets/backend/js/toastr.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 @stack('js')

@@ -39,4 +39,8 @@ class ProductController extends Controller
     {
         return view('index.navbar2');
     }
+    public function productDetails()
+    {
+        return view('index.cart');
+    }
 }

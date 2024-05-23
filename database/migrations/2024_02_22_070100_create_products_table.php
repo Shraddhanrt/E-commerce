@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->integer('quantity');
             $table->decimal('cost');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->boolean('active')->default(1);
             $table->boolean('featured')->default(1);
             $table->timestamps();

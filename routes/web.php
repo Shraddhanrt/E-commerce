@@ -25,6 +25,9 @@ Route::get('/features', [ProductController::class, 'features'])->name('features'
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
+Route::get('/product.details', [ProductController::class, 'productDetails'])->name('productdetails');
+
+
 
 Route::prefix('admin')->group(
     function ()
@@ -34,11 +37,14 @@ Route::prefix('admin')->group(
         Route::post('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
 
 
-        Route::get('/dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index');
-        Route::get('/products',  [AdminProductController::class, 'index'])->name('admin.product.index');
-        Route::get('/products/create',  [AdminProductController::class, 'create'])->name('admin.product.create');
-        Route::post('/products/store',  [AdminProductController::class, 'store'])->name('admin.product.store');
-        Route::get('/products/{id}/edit',  [AdminProductController::class, 'edit']);
-        Route::get('/products/{id}/delete',  [AdminProductController::class, 'delete']);
+        Route::get('/dashboard',  [DashboardController::class, 'index'])->name('admin.dashboard.index')->middleware('auth');
+        Route::get('/products',  [AdminProductController::class, 'index'])->name('admin.product.index')->middleware('auth');
+        Route::get('/products/create',  [AdminProductController::class, 'create'])->name('admin.product.create')->middleware('auth');
+        Route::post('/products/store',  [AdminProductController::class, 'store'])->name('admin.product.store')->middleware('auth');
+        Route::get('/products/{id}/edit',  [AdminProductController::class, 'edit'])->middleware('auth');
+        Route::get('/products/{id}/delete',  [AdminProductController::class, 'delete'])->middleware('auth');
     }
 );
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

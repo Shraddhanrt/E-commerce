@@ -36,33 +36,35 @@ class ProductController extends Controller
             // dd($request->all());
 
             // Create a unique name for the image
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName =  time() . '.' . $request->image->extension();
 
             // Move the image to the public/products directory
             $request->image->move(public_path('products'), $imageName);
 
             // Create and save the product
             $product = new Product;
-            $product->image = $imageName;
+            $product->image = 'products/' . $imageName;
             $product->name = $request->name;
             $product->description = $request->description;
             $product->cost = $request->cost;
             $product->quantity = $request->quantity;
 
             $product->save();
-            dd($product);
+            // dd($product);
 
             return back();
         }
 
         catch (Exception $e)
         {
-            // dd($e);
+            dd($e);
         }
+        
     }
 
     public function edit($id)
     {
         $product = Product::find($id);
     }
+    
 }

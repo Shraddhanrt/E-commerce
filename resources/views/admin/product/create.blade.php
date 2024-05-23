@@ -81,7 +81,29 @@
                                             @endif
                                         </div>
 
+                                        <div class="form-group col-12 col-md-12 col-lg-12">
+                                            <label>Status</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="status"
+                                                        id="status_active" value="active"
+                                                        {{ old('status') == 'active' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="status_active">Active</label>
+                                                </div>
 
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="status"
+                                                        id="status_inactive" value="inactive"
+                                                        {{ old('status') == 'inactive' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="status_inactive">Inactive</label>
+                                                </div>
+                                            </div>
+                                            @if ($errors->has('status'))
+                                                <div class="text-danger">
+                                                    <strong>{{ $errors->first('status') }}</strong>
+                                                </div>
+                                            @endif
+                                        </div>
                                         <div class="form-group col-12 col-md-12 col-lg-12">
                                             <label>Product Description</label>
                                             <textarea type="text" class="form-control" name="description" value="{{ old('description') }}" rows=5 cols=5
