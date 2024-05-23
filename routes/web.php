@@ -34,6 +34,7 @@ Route::group(
     function ()
     {
         Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
+        Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
     }
 );
 
