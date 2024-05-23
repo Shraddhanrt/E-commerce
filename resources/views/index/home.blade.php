@@ -11,8 +11,7 @@
 
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     {{-- Animation --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -20,6 +19,11 @@
 
     <!-- Include jQuery and Isotope -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="{{ asset('assets/backend/css/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/backend/css/toastr.min.css') }}">
+    <script src="{{asset('assets/backend/js/toastr.min.js')}}"></script>
+
+
 
 
     <!-- Owl Carousel CSS -->
@@ -30,8 +34,7 @@
 
 <body>
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
     <script>
         document.getElementById('navbarToggle').addEventListener('click', function() {
@@ -239,6 +242,44 @@
             navbarToggle.addEventListener("click", function() {
                 navbar.classList.toggle("navbar-bg");
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "10000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            // Display an info toast with no title
+            @if(Session::has('success'))
+            toastr["success"]('<?= Session::get('success') ?>', "Success");
+            @endif
+
+            @if(Session::has('info'))
+            toastr["info"]('<?= Session::get('info') ?>', "Info");
+            @endif
+
+            @if(Session::has('warning'))
+            toastr["warning"]('<?= Session::get('warning') ?>', "Warning");
+            @endif
+
+            @if(Session::has('error'))
+            toastr["error"]('<?= Session::get('error') ?>', "Error");
+            @endif
         });
     </script>
 
