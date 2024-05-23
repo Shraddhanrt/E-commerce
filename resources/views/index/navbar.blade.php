@@ -38,7 +38,7 @@
                     </a>
                 </button>
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                    <a class="icon" href="#">
+                    <a class="icon" href="{{route('web.wishlist')}}">
                         <div><i class=" fa fa-light fa-heart"></i></div>
                     </a>
                 </button>
@@ -86,7 +86,7 @@
                         </a>
                     </button>
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" href="#">
+                        <a class="icon" href="{{route('web.wishlist')}}">
                             <div><i class="fa fa-light fa-heart"></i></div>
                         </a>
                     </button>

@@ -42,4 +42,9 @@ class UserController extends Controller
             return redirect()->back()->withInput($request->input());
         }
     }
+
+    public function getWishlist()
+    {
+        dd("wishlist");
+    }
 }

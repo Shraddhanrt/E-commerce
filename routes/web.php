@@ -29,6 +29,14 @@ Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
 Route::post('/users/sign-up',  [UserController::class, 'store'])->name('user.store');
 
+Route::group(
+    ['middleware' => 'web.login'],
+    function ()
+    {
+        Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
+    }
+);
+
 Route::prefix('admin')->group(
     function ()
     {
