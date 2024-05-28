@@ -33,30 +33,35 @@
                 <div class="row iso-container">
                     <!-- item1=1blue|| item2=red || item3=pink -->
                     <!-- ----1---- -->
-
-                    <div class="col-md-4 cent isotope-item item1 mt-5">
-                        <div class="container img_iso blu1 card">
-                            <div class="overlay">
-                                <div class="text">
-                                    <a href="{{ route('shop') }}">Quick View</a>
+                    @foreach ($products as $product)
+                        <div class="col-md-4 cent isotope-item item1 mt-5">
+                            <div class="container img_iso blu1 card"
+                                style="background-image: url('{{ asset($product->image) }}')">
+                                <div class="overlay">
+                                    <div class="product-name">
+                                        <p class="text-center fw-bold fs-4">{{ $product->name }}</p>
+                                    </div>
+                                    <div class="text">
+                                        <a href="{{ route('productdetails') }}">Quick View</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer iso-foot card-iso bg-transparent border-secondary">
-                            <div class="row">
-                                <div class=" pri col-md-5 col-12">
-                                    $50.00
-                                </div>
-                                <div class="btn-cart col-md-7 col-12">
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn shadow-none" data-toggle="modal"
-                                        data-target="#exampleModalLong1"
-                                        style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(80, 72, 81); color:white">
-                                        <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add To
-                                        Cart
-                                    </button>
-                                    <!-- Modal -->
-                                    {{-- <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog"
+                            <div class="card-footer iso-foot card-iso bg-transparent border-secondary">
+                                <div class="row">
+                                    <div class=" pri col-md-5 col-12">
+                                        Rs.{{ $product->cost }}
+                                    </div>
+                                    <div class="btn-cart col-md-7 col-12">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn shadow-none" data-toggle="modal"
+                                            data-target="#exampleModalLong1"
+                                            style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(80, 72, 81); color:white">
+                                            <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
+                                            To
+                                            Cart
+                                        </button>
+                                        <!-- Modal -->
+                                        {{-- <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -95,11 +100,82 @@
                                             </div>
                                         </div>
                                     </div> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 cent isotope-item item2 mt-5">
+                        <div class="col-md-4 cent isotope-item item1 mt-5">
+                            <div class="container img_iso blu1 card"
+                                style="background-image: url('{{ asset($product->image) }}')">
+                                <div class="overlay">
+                                    <div class="product-name">
+                                        <p class="text-center fw-bold fs-4">{{ $product->name }}</p>
+                                    </div>
+                                    <div class="text">
+                                        <a href="{{ route('productdetails') }}">Quick View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer iso-foot card-iso bg-transparent border-secondary">
+                                <div class="row">
+                                    <div class=" pri col-md-5 col-12">
+                                        Rs.{{ $product->cost }}
+                                    </div>
+                                    <div class="btn-cart col-md-7 col-12">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn shadow-none" data-toggle="modal"
+                                            data-target="#exampleModalLong1"
+                                            style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(80, 72, 81); color:white">
+                                            <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
+                                            To
+                                            Cart
+                                        </button>
+                                        <!-- Modal -->
+                                        {{-- <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Product Details
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"
+                                                        style="background-color: rgba(228, 146, 228, 0.5); border-radius: 10px;">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="{{ asset('images/product-01.jpg.webp') }}"
+                                                        class="img-fluid" id="main">
+                                                    <div id="thumbnails">
+                                                        <img src="{{ asset('images/product-01.jpg.webp') }}"
+                                                            class="img-fluid">
+                                                        <img src="https://source.unsplash.com/pV5ckb2HEVk/800x800"
+                                                            class="img-fluid">
+                                                        <img src="{{ asset('images/product-01.jpg.webp') }}"
+                                                            class="img-fluid">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn shadow-none" data-dismiss="modal"
+                                                        style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(0, 0, 0); color:white">
+                                                        Shop Now
+                                                    </button>
+                                                    <button type="button" class="btn shadow-none" data-dismiss="modal"
+                                                        style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(213, 80, 230); color:white">
+                                                        <i class="fa fa-light fa-cart-shopping"
+                                                            style="padding-right: 5px"></i>Add To Cart
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-md-4 cent isotope-item item2 mt-5">
                         <div class="container img_iso red1 card">
                             <div class="overlay">
                                 <div class="text"> <a href="{{ route('shop') }}">Quick View </a></div>
@@ -115,9 +191,10 @@
                                     <button type="button" class="btn shadow-none"
                                         style="font-size: 11px; width: 100%; max-width: 12em; background-color: rgb(80, 72, 81); color: white;"
                                         onclick="location.href='/product.details'">
-                                        <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add To
+                                        <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
+                                        To
                                         Cart
-                                </button>
+                                    </button>
 
 
 
@@ -125,7 +202,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4 cent isotope-item item3 mt-5">
                         <div class="container img_iso pink1 card">
                             <div class="overlay">
@@ -153,7 +229,6 @@
                         </div>
 
                     </div>
-
                     <!-- -----2----- -->
                     <div class="col-xs-12 col-sm-6 col-md-4 cent isotope-item item2 mt-5">
                         <div class=" container img_iso red2 card">
@@ -233,11 +308,7 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <!-- ----3--- -->
-
                     <div class="col-xs-12 col-sm-6 col-md-4 cent isotope-item item1">
                         <div class=" container img_iso blu3 card ">
                             <div class="overlay">
@@ -264,7 +335,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-sm-6 col-md-4 cent isotope-item item1">
                         <div class=" container img_iso blu5 card">
                             <div class="overlay">
@@ -291,7 +361,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-sm-6 col-md-4 cent isotope-item item1">
                         <div class="container img_iso blu6 card">
                             <div class="overlay">
@@ -315,7 +384,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

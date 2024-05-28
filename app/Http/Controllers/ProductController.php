@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -9,7 +12,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view("welcome");
+
+        $product = Product::where('active', 'true')->get();
+        return view("welcome", ['products' => $product]);
     }
     public function about()
     {

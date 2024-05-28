@@ -48,8 +48,7 @@ class ProductController extends Controller
             $product->description = $request->description;
             $product->cost = $request->cost;
             $product->quantity = $request->quantity;
-
-            $product->save();
+           $product->save();
             // dd($product);
 
             return back();
@@ -57,14 +56,18 @@ class ProductController extends Controller
 
         catch (Exception $e)
         {
-            dd($e);
+            return back()->withErrors(['error' => 'Failed to create product: ' . $e->getMessage()]);
         }
-        
     }
 
     public function edit($id)
     {
-        $product = Product::find($id);
+       $product = Product::find($id);
+       return view('admin.product.edit', compact('product'));
     }
-    
+    public function update(Request $request, $id)
+    {
+        
+    }
+   
 }
