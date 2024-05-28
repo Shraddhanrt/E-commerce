@@ -42,7 +42,7 @@
                                         <p class="text-center fw-bold fs-4">{{ $product->name }}</p>
                                     </div>
                                     <div class="text">
-                                        <a href="{{ route('productdetails') }}">Quick View</a>
+                                        <a href="#">Quick View</a>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                                         <p class="text-center fw-bold fs-4">{{ $product->name }}</p>
                                     </div>
                                     <div class="text">
-                                        <a href="{{ route('productdetails') }}">Quick View</a>
+                                        <a href="#">Quick View</a>
                                     </div>
                                 </div>
                             </div>
