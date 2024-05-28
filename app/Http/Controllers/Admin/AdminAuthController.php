@@ -18,7 +18,7 @@ class AdminAuthController extends Controller
         {
             if (Auth::check())
             {
-                if (strtoupper(Auth::User()->role) == 'admin')
+                if (strtoupper(Auth::User()->role) == 'ADMIN')
                 {
                     return redirect()->route('admin.dashboard.index');
                 }
@@ -37,6 +37,7 @@ class AdminAuthController extends Controller
     {
         try
         {
+            // dd($request->all());
             $validator = Validator::make($request->all(), [
                 'email' => 'required',
                 'password' => 'required',
@@ -57,7 +58,6 @@ class AdminAuthController extends Controller
                     Session::flash('error', 'Your account is not activated yet.');
                     return redirect()->back()->withInput($request->input());
                 }
-
                 Session::flash('success', 'Login Success.');
 
                 if (strtoupper(Auth::User()->role) == 'ADMIN')
@@ -87,6 +87,6 @@ class AdminAuthController extends Controller
     {
         Auth::logout();
         Session::flash('success', 'Logged out Succesfully.');
-        return view('admin.login.index');
+        return redirect()->route('admin.login.index');
     }
 }
