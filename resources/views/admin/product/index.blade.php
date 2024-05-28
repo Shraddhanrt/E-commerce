@@ -73,7 +73,7 @@
                                         <td>
                                             <a href="products/{{ $product->id }}/edit" class="btn btn-dark btn-sm">Edit
                                             </a>
-                                            <a href="products/{{ $product->id }}/delete" class="btn btn-dark btn-sm">Delete
+                                            <a href="products/delete/{{ $product->id }}" class="btn btn-dark btn-sm">Delete
                                             </a>
                                         </td>
                                     </tr>

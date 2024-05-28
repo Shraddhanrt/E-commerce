@@ -48,7 +48,7 @@ class ProductController extends Controller
             $product->description = $request->description;
             $product->cost = $request->cost;
             $product->quantity = $request->quantity;
-           $product->save();
+            $product->save();
             // dd($product);
 
             return back();
@@ -62,12 +62,52 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-       $product = Product::find($id);
-       return view('admin.product.edit', compact('product'));
+        $product = Product::find($id);
+        // dd($product);
+
+        return view('admin.product.edit', compact('product'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
+        try
+        {
+            $product = Product::find($request->id);
+            if ($request->image)
+            {
+                // Create a unique name for the image
+                $imageName =  time() . '.' . $request->image->extension();
+
+                // Move the image to the public/products directory
+                $request->image->move(public_path('products'), $imageName);
+            }
+            else
+            {
+                $imageName =  $product->image;
+            }
+            $product->image = $imageName;
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->cost = $request->cost;
+            $product->quantity = $request->quantity;
+            $product->save();
+            return redirect()->route('admin.product.index')->with('success', 'Product updated successfully!!');
+        }
+        catch (Exception $e)
+        {
+            return back()->withErrors(['error' => 'Failed to update product: ' . $e->getMessage()]);
+        }
     }
-   
+
+    public function delete($id)
+    {
+        try
+        {
+            Product::where('id', $id)->delete();
+            return redirect()->back()->with('success', 'Product deleted successfully!!');
+        }
+        catch (Exception $e)
+        {
+            return back()->withErrors(['error' => 'Failed to delete product: ' . $e->getMessage()]);
+        }
+    }
 }
