@@ -16,7 +16,6 @@ class Product extends Model
         'quantity',
         'image',
         'active',
-        'featured'
-
+        'featured',
     ];
 }

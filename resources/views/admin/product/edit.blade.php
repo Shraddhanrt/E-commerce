@@ -33,16 +33,17 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Create New Product</h4><br>
-                        <form action="{{ route('admin.product.store') }}" method="POST" action="/products/store "
+                        <form action="{{ route('admin.product.update') }}" method="POST" action="/products/store "
                             enctype="multipart/form-data">
                             @csrf
                             <div class="form-body">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="form-group col-12 col-md-6 col-lg-6">
+                                            <input type="hidden" value="{{ $product->id }}" name="id">
                                             <label>Product Name<span class="required">*</span></label>
                                             <input type="text" class="form-control" required name="name"
-                                                value="{{ old('name') }}" placeholder="Enter Product Name">
+                                                value="{{ $product->name }}" placeholder="Enter Product Name">
                                             @if ($errors->has('name'))
                                                 <span class="text-danger">
                                                     <strong>{{ $errors->first('name') }}</strong>
@@ -52,7 +53,9 @@
 
                                         <div class="form-group col-12 col-md-6 col-lg-6">
                                             <label>Product Image<span class="required">*</span></label>
-                                            <input type="file" class="form-control" required name="image">
+                                            <input type="file" class="form-control" name="image">
+                                            <img src="{{ url($product->image) }}" class="rounded-circle" width="50"
+                                                height="50" />
                                             @if ($errors->has('image'))
                                                 <div class="text-danger">
                                                     <strong>{{ $errors->first('image') }}</strong>
@@ -61,8 +64,8 @@
                                         </div>
                                         <div class="form-group col-12 col-md-6 col-lg-6">
                                             <label>Cost<span class="required">*</span></label>
-                                            <input type="number" class="form-control" name="cost" step="0.01"
-                                                min="0" value="{{ old('cost') }}" required
+                                            <input type="number" class="form-control" name="cost" id="cost"
+                                                step="0.01" min="0" value="{{ $product->cost }}" required
                                                 placeholder="Enter Price">
                                             @if ($errors->has('cost'))
                                                 <div class="text-danger">
@@ -72,8 +75,8 @@
                                         </div>
                                         <div class="form-group col-12 col-md-6 col-lg-6">
                                             <label>Quantity<span class="required">*</span></label>
-                                            <input type="number" class="form-control" name="quantity"
-                                                value="{{ old('quantity') }}" required placeholder="Enter Quantity">
+                                            <input type="number" class="form-control" name="quantity" id="quantity"
+                                                value="{{ $product->quantity }}"required placeholder="Enter Quantity">
                                             @if ($errors->has('quantity'))
                                                 <span class="text-danger">
                                                     <strong>{{ $errors->first('quantity') }}</strong>
@@ -87,14 +90,14 @@
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="status"
                                                         id="status_active" value="active"
-                                                        {{ old('status') == 'active' ? 'checked' : '' }}>
+                                                        {{ $product->active ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="status_active">Active</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="status"
                                                         id="status_inactive" value="inactive"
-                                                        {{ old('status') == 'inactive' ? 'checked' : '' }}>
+                                                        {{ $product->inactive ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="status_inactive">Inactive</label>
                                                 </div>
                                             </div>
@@ -104,16 +107,17 @@
                                                 </div>
                                             @endif
                                         </div>
-                                        <div class="form-group col-12 col-md-12 col-lg-12">
-                                            <label>Product Description</label>
-                                            <textarea type="text" class="form-control" name="description" value="{{ old('description') }}" rows=5 cols=5
-                                                placeholder="Enter Product's Description"></textarea>
+                                        <div class="form-group col-12 col-md-6 col-lg-12">
+                                            <label for="description">Product Description</label>
+                                            <textarea class="form-control" name="description" id="description" rows="5"
+                                                placeholder="Enter Product's Description">{{ old('description', $product->description) }}</textarea>
                                             @if ($errors->has('description'))
                                                 <span class="text-danger">
                                                     <strong>{{ $errors->first('description') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

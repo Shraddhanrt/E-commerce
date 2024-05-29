@@ -47,6 +47,10 @@
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                     <a class="icon" href="{{route('web.cart')}}"><i class="fa fa-light fa-cart-shopping"></i></a>
                 </button>
+                {{-- <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                    <a class="icon" href="/login"><i class="fa fa-light fa-user"></i></a>
+                </button> --}}
+
             </div>
         </div>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -97,6 +101,8 @@
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="{{route('web.cart')}}"><i class="fa fa-light fa-cart-shopping"></i></a>
                     </button>
+
+
                 </div>
             </div>
         </div>

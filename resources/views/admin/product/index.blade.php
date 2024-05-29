@@ -49,6 +49,7 @@
                                     <th>Name</th>
                                     <th>Product Image</th>
                                     <th>Quantity</th>
+                                    <th>Cost</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -58,14 +59,21 @@
                                     <tr>
                                         <td>{{ $loop->index + 1 }} </td>
                                         <td>{{ $product->name }} </td>
-                                        <td><img src="products/{{ $product->image }}" class="rounded-circle" width="50"
+                                        <td><img src="{{ url($product->image) }}" class="rounded-circle" width="50"
                                                 height="50" /> </td>
+                                        <td>{{ $product->quantity }} </td>
+                                        <td>{{ $product->cost }} </td>
                                         <td>
-                                            <a href="products/{{ $products->id }}/edit" class="btn btn-dark btn-sm">Edit
-                                            </a>
+                                            @if ($product->active == '1')
+                                                Active
+                                            @else
+                                                Inactive
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="products/{{ $products->id }}/delete" class="btn btn-dark btn-sm">Delete
+                                            <a href="products/{{ $product->id }}/edit" class="btn btn-dark btn-sm">Edit
+                                            </a>
+                                            <a href="products/delete/{{ $product->id }}" class="btn btn-dark btn-sm">Delete
                                             </a>
                                         </td>
                                     </tr>
