@@ -53,7 +53,7 @@ class UserController extends Controller
     }
     public function getCart()
     {
-        $total = Cart::where('user_id', Auth::user()->id)->first()->total_quantity;
+        $total = Cart::where('user_id', Auth::user()->id)->first()->total_quantity ?? NULL;
         $products = Cart::where('user_id', Auth::user()->id)
             ->select('cart_items.quantity', 'cart_items.total', 'products.name', 'products.cost', 'products.image')
             ->leftJoin('cart_items', 'carts.id', 'cart_items.cart_id')

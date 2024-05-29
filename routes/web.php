@@ -39,6 +39,7 @@ Route::group(
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
         Route::post('/customers/store',  [UserController::class, 'customerStore'])->name('customer.store');
         Route::post('/khalti/store',  [KhaltiController::class, 'store'])->name('khalti.store');
+        Route::get('/khalti/response',  [KhaltiController::class, 'response'])->name('khalti.response');
     }
 );
 

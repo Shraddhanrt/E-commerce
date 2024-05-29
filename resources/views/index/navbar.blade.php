@@ -32,13 +32,20 @@
                         <div><i class="fa fa-light fa-search"></i></div>
                     </a>
                 </button>
-                @if (!Auth::user())
-                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" href="{{ route('login') }}">
-                            <div><i class="fa fa-light fa-user"></i></div>
-                        </a>
-                    </button>
+                @if(!Auth::user())
+                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                    <a class="icon" href="{{route('login')}}">
+                        <div><i class="fa fa-light fa-user"></i></div>
+                    </a>
+                </button>
+                @else
+                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                    <a class="icon" href="{{route('admin.logout')}}">
+                        <div><i class="fa fa-light fa-sign-out"></i></div>
+                    </a>
+                </button>
                 @endif
+
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                     <a class="icon" href="{{ route('web.wishlist') }}">
                         <div><i class=" fa fa-light fa-heart"></i></div>
@@ -86,12 +93,18 @@
                             <div><i class="fa fa-light fa-search"></i></div>
                         </a>
                     </button>
-                    @if (!Auth::user())
-                        <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                            <a class="icon" href="{{ route('login') }}">
-                                <div><i class="fa fa-light fa-user"></i></div>
-                            </a>
-                        </button>
+                    @if(!Auth::user())
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                        <a class="icon" href="{{route('login')}}">
+                            <div><i class="fa fa-light fa-user"></i></div>
+                        </a>
+                    </button>
+                    @else
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                        <a class="icon" href="{{route('admin.logout')}}">
+                            <div><i class="fa fa-light fa-sign-out"></i></div>
+                        </a>
+                    </button>
                     @endif
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="{{ route('web.wishlist') }}">
