@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use App\Models\User;
+use App\Models\Customer;
 use Validator;
 use Hash;
 
@@ -59,8 +60,36 @@ class UserController extends Controller
             ->leftJoin('products', 'products.id', 'cart_items.product_id')
             ->get();
         // dd($products);
-        return view("index.feature", compact('total', 'products'));
+        $customer = Customer::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();;
+        return view("index.feature", compact('total', 'products', 'customer'));
     }
+    public function customerStore(Request $request)
+    {
+        try
+        {
+            $validator = Validator::make($request->all(), [
+                'email'  => 'required|email|unique:users',
+                'firstname' => 'required|string',
+                'lastname' => 'required|string',
+                'password' => 'required|min:6'
+            ]);
+            $customer = new Customer();
+            $customer->user_id = Auth::user()->id;
+            $customer->name = $request->name;
+            $customer->phone = $request->phone;
+            $customer->address = $request->address;
+            $customer->save();
+            Session::flash('success', 'Customer Info Saved Successfully');
+            return redirect()->back();
+        }
+        catch (Exception $e)
+        {
+            Session::flash('error', $e);
+            return redirect()->back()->withInput($request->input());
+        }
+    }
+
+
     public function cartStore($id)
     {
         try

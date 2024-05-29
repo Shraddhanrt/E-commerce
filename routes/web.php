@@ -36,6 +36,8 @@ Route::group(
         Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
+        Route::post('/customers/store',  [UserController::class, 'customerStore'])->name('customer.store');
+
 
     }
 );

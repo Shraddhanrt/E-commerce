@@ -61,40 +61,73 @@
                         <div class="col-4">
                             <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Shipping:</h6>
                         </div>
-                        <div class="col-8">
-                            <div class="cart-shipping-info">
-                                <p>There are no shipping methods available. Please double check your address, or contact
-                                    us if you need any help.</p>
-                                <p class="mt-2">CUSTOMER INFO</p>
-                                <div class="mt-3">
-                                    <input type="text" class="form-control" placeholder="Customer Name">
+                        @if (isset($customer))
+                            <div class="col-8">
+                                <div class="cart-shipping-info">
+                                    <p>There are no shipping methods available. Please double check your address, or
+                                        contact
+                                        us if you need any help.</p>
+                                    <p class="mt-2">CUSTOMER INFO</p>
+                                    <div class="mt-3">
+                                        <input type="text" class="form-control" readonly
+                                            name="name"value="{{ $customer->name }}">
+                                    </div>
+                                    <div class="mt-3">
+                                        <input type="text" class="form-control" readonly name="phone"
+                                            value="{{ $customer->phone }}">
+                                    </div>
+                                    <div class="mt-3">
+                                        <input type="text" class="form-control" readonly name="address"
+                                            value="{{ $customer->address }}">
+                                    </div>
                                 </div>
-                                <div class="mt-3">
-                                    <input type="text" class="form-control" placeholder="Phone Number">
-                                </div>
-                                <div class="mt-3">
-                                    <input type="text" class="form-control" placeholder="Delivery Address">
-                                </div>
-                            </div>
-                            <div>
-                                <button type="button"
-                                    class="btn mt-4 btn-update-tools justify-content-center d-flex">Add Info</button>
-                            </div>
-                        </div>
+                            @else
+                                <form action="{{ route('customer.store') }}" method="post">
+                                    @csrf
+                                    <div class="col-8">
+                                        <div class="cart-shipping-info">
+                                            <p>There are no shipping methods available. Please double check your
+                                                address, or
+                                                contact
+                                                us if you need any help.</p>
+                                            <p class="mt-2">CUSTOMER INFO</p>
+                                            <div class="mt-3">
+                                                <input type="text" class="form-control" name="name"
+                                                    placeholder="Customer Name">
+                                            </div>
+                                            <div class="mt-3">
+                                                <input type="text" class="form-control" name="phone"
+                                                    placeholder="Phone Number">
+                                            </div>
+                                            <div class="mt-3">
+                                                <input type="text" class="form-control" name="address"
+                                                    placeholder="Delivery Address">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button type="submit"
+                                                class="btn mt-4 btn-update-tools justify-content-center d-flex">Add
+                                                Info
+                                            </button>
+                                        </div>
+                                </form>
+                        @endif
+
                     </div>
-                    <hr class="cart-divider" />
-                    <div class="cart-info">
-                        <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs.225</h6>
-                    </div>
-                    <span class="btn-proceed justify-content-center d-flex align-items-center">
-                        <button type="button" class="btn mt-3 btn-proceed-to-purchase"
-                            style="margin-left:2em;width:20em">Pay Via
-                            Khalti</button>
-                    </span>
                 </div>
+                <hr class="cart-divider" />
+                <div class="cart-info">
+                    <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs.225</h6>
+                </div>
+                <span class="btn-proceed justify-content-center d-flex align-items-center">
+                    <button type="button" class="btn mt-3 btn-proceed-to-purchase"
+                        style="margin-left:2em;width:20em">Pay Via
+                        Khalti</button>
+                </span>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
