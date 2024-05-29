@@ -31,9 +31,12 @@
                                         <button type="button" class="btn shadow-none" data-toggle="modal"
                                             data-target="#exampleModalLong1"
                                             style="font-size: 11px; width: 100%; max-width: 12em; background-color:rgb(80, 72, 81); color:white">
-                                            <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
-                                            To
-                                            Cart
+                                            <a href="{{ route('cart.store', ['id' => $product->id]) }}">
+                                                <i class="fa fa-light fa-cart-shopping"
+                                                    style="padding-right: 5px"></i>Add
+                                                To
+                                                Cart
+                                            </a>
                                         </button>
                                     </div>
                                 </div>
