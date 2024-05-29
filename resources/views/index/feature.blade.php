@@ -119,11 +119,14 @@
                 <div class="cart-info">
                     <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs.225</h6>
                 </div>
-                <span class="btn-proceed justify-content-center d-flex align-items-center">
-                    <button type="button" class="btn mt-3 btn-proceed-to-purchase"
-                        style="margin-left:2em;width:20em">Pay Via
-                        Khalti</button>
-                </span>
+                <form action="{{ route('khalti.store') }}" method="post">
+                    @csrf
+                    <span class="btn-proceed justify-content-center d-flex align-items-center">
+                        <button type="submit" class="btn mt-3 btn-proceed-to-purchase"
+                            style="margin-left:2em;width:20em">Pay Via
+                            Khalti</button>
+                    </span>
+                </form>
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\KhaltiController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -37,8 +38,7 @@ Route::group(
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
         Route::post('/customers/store',  [UserController::class, 'customerStore'])->name('customer.store');
-
-
+        Route::post('/khalti/store',  [KhaltiController::class, 'store'])->name('khalti.store');
     }
 );
 
