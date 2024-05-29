@@ -27,7 +27,7 @@ class ProductController extends Controller
             // Validate the request to ensure all fields are provided and valid
 
             $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'required|image|mimes:jpeg,webp,png,jpg,gif|max:2048',
                 'name' => 'required|string|max:255',
                 'description' => 'nullable|string',
                 'cost' => 'required|numeric|min:0',
@@ -51,7 +51,7 @@ class ProductController extends Controller
             $product->save();
             // dd($product);
 
-            return back();
+            return redirect()->route('admin.product.index')->with('success', 'Product created successfully!');
         }
 
         catch (Exception $e)

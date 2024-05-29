@@ -469,7 +469,7 @@ body {
     margin-top: 10px;
 }
 .text:hover {
-    background-color: #222020;
+    background-color: rgb(182, 44, 197) !important;
 }
 .iso-container a {
     text-decoration: none;

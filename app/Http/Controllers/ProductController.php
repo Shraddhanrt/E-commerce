@@ -13,8 +13,10 @@ class ProductController extends Controller
     public function index()
     {
 
-        $product = Product::where('active', 'true')->get();
-        return view("welcome", ['products' => $product]);
+        $products = Product::where('active', 1)->get();
+        $featured = Product::where('active', 1)->where('featured', 1)->get();
+        // dd($product)
+        return view("welcome", compact('products', 'featured'));
     }
     public function about()
     {
