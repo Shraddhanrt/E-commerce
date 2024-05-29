@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Cart;
+use Auth;
 
 
 use Illuminate\Http\Request;
@@ -15,8 +17,8 @@ class ProductController extends Controller
 
         $products = Product::where('active', 1)->get();
         $featured = Product::where('active', 1)->where('featured', 1)->get();
-        // dd($product)
-        return view("welcome", compact('products', 'featured'));
+        $total = Cart::where('user_id', Auth::user()->id)->first()->total_quantity;
+        return view("welcome", compact('products', 'featured', 'total'));
     }
     public function about()
     {
@@ -26,10 +28,10 @@ class ProductController extends Controller
     {
         return view("index.shop");
     }
-    public function features()
-    {
-        return view("index.feature");
-    }
+    // public function features()
+    // {
+    //     return view("index.feature");
+    // }
     public function contact()
     {
         return  view("index.contact");

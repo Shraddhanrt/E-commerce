@@ -23,48 +23,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">
-                                <div class="fre-img">
-                                    <img src="{{ asset('images\item-cart-04.jpg.webp') }}">
-                                    <span
-                                        style="padding-left: 10px; font-size: 15px; color: rgb(71, 67, 67); font-style: Times New Roman;">Fresh
-                                        Strawberries</span>
-                                </div>
-                            </td>
-                            <td style="vertical-align: middle;">Rs189.00</td>
-                            <td style="vertical-align: middle;">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <button class="quantity-button" onclick="decreaseQuantity()"><i
-                                            class="fa fa-thin fa-plus" style="font-size: 9px"></i></button>
-                                    <span class="quantity"> 1</span>
-                                    <button class="quantity-button" onclick="increaseQuantity()"><i
-                                            class="fa fa-thin fa-minus" style="font-size: 9px"></i></button>
-                                </div>
-                            </td>
-                            <td style="vertical-align: middle;">Rs.189.00</td>
-                        </tr>
-                        <tr>
-                            <td scope="row">
-                                <div class="fre-img">
-                                    <img src="{{ asset('images\item-cart-05.jpg.webp') }}">
-                                    <span
-                                        style="padding-left: 10px; font-size: 15px; color: rgb(71, 67, 67); font-style: Times New Roman;">Lightweight
-                                        Jacket</span>
-                                </div>
-                            </td>
-                            <td style="vertical-align: middle;">Rs36.00</td>
-                            <td style="vertical-align: middle;">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <button class="quantity-button" onclick="decreaseQuantity()"><i
-                                            class="fa fa-thin fa-plus" style="font-size: 9px"></i></button>
-                                    <span class="quantity"> 1</span>
-                                    <button class="quantity-button" onclick="increaseQuantity()"><i
-                                            class="fa fa-thin fa-minus" style="font-size: 9px"></i></button>
-                                </div>
-                            </td>
-                            <td style="vertical-align: middle;">Rs.36.00</td>
-                        </tr>
+                        @foreach ($products as $product)
+                            <tr>
+                                <td scope="row">
+                                    <div class="fre-img">
+
+                                        <img src="{{ asset($product->image) }}" style="height: 5em; width:5em">
+                                        <span
+                                            style=" font-size: 15px; color: rgb(71, 67, 67); font-style: Times New Roman;">{{ $product->name }}</span>
+                                    </div>
+                                </td>
+                                <td style="vertical-align: middle;">{{ $product->cost }}</td>
+                                <td style="vertical-align: middle;">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        {{ $product->quantity }}
+
+                                    </div>
+                                </td>
+                                <td style="vertical-align: middle;"> {{ $product->total }}
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -86,18 +65,20 @@
                             <div class="cart-shipping-info">
                                 <p>There are no shipping methods available. Please double check your address, or contact
                                     us if you need any help.</p>
-                                <p class="mt-2">CALCULATE SHIPPING</p>
+                                <p class="mt-2">CUSTOMER INFO</p>
                                 <div class="mt-3">
-                                    <input type="text" class="form-control" placeholder="State/Country">
+                                    <input type="text" class="form-control" placeholder="Customer Name">
                                 </div>
                                 <div class="mt-3">
-                                    <input type="text" class="form-control" placeholder="Postcode/Zip">
+                                    <input type="text" class="form-control" placeholder="Phone Number">
+                                </div>
+                                <div class="mt-3">
+                                    <input type="text" class="form-control" placeholder="Delivery Address">
                                 </div>
                             </div>
                             <div>
                                 <button type="button"
-                                    class="btn mt-4 btn-update-tools justify-content-center d-flex">Update
-                                    Tools</button>
+                                    class="btn mt-4 btn-update-tools justify-content-center d-flex">Add Info</button>
                             </div>
                         </div>
                     </div>
@@ -106,8 +87,9 @@
                         <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs.225</h6>
                     </div>
                     <span class="btn-proceed justify-content-center d-flex align-items-center">
-                        <button type="button" class="btn mt-3 btn-proceed-to-purchase" style="margin-left:2em;">Proceed
-                            To Purchase</button>
+                        <button type="button" class="btn mt-3 btn-proceed-to-purchase"
+                            style="margin-left:2em;width:20em">Pay Via
+                            Khalti</button>
                     </span>
                 </div>
             </div>

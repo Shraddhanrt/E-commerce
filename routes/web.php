@@ -23,7 +23,7 @@ Route::get('/home', [ProductController::class, 'index'])->name('index');
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
 Route::get('/about', [ProductController::class, 'about'])->name('about');
-Route::get('/features', [ProductController::class, 'features'])->name('features');
+// Route::get('/features', [ProductController::class, 'features'])->name('features');
 Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
@@ -35,6 +35,8 @@ Route::group(
     {
         Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
+        Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
+
     }
 );
 
