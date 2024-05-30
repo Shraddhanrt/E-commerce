@@ -11,6 +11,7 @@ use Auth;
 use Session;
 use App\Models\User;
 use App\Models\Customer;
+use App\Models\Wishlist;
 use Validator;
 use Hash;
 
@@ -47,10 +48,7 @@ class UserController extends Controller
         }
     }
 
-    public function getWishlist()
-    {
-        return view('index.wishlist');
-    }
+
     public function getCart()
     {
         if (Auth::user())
@@ -139,5 +137,38 @@ class UserController extends Controller
         {
             return redirect()->back()->with('error', $e);
         }
+    }
+    public function wishlistStore($id)
+    {
+        try
+        {
+            $check = Wishlist::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
+            if ($check)
+            {
+                $check->delete();
+                return redirect()->back()->with('success', 'Deleted from wishlist successfully!!');
+            }
+            else
+            {
+                $wishlist = new Wishlist();
+                $wishlist->user_id = Auth::user()->id;
+                $wishlist->product_id = $id;
+                $wishlist->is_wishlist = 1;
+                $wishlist->save();
+                return redirect()->back()->with('success', 'Added to Wishlist successfully!!');
+            }
+        }
+        catch (Exception $e)
+        {
+            return redirect()->back()->with('error', $e);
+        }
+    }
+    public function getWishlist()
+    {
+        $wishlists = Wishlist::where('user_id', Auth::user()->id)
+            ->select('products.name', 'products.cost', 'products.image', 'products.id as product_id')
+            ->leftJoin('products', 'products.id', 'wishlists.product_id')
+            ->get();
+        return view('index.wishlist', compact('wishlists'));
     }
 }

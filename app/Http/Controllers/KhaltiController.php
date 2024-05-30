@@ -22,7 +22,7 @@ class KhaltiController extends Controller
             $customer = Customer::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();
             $data =
                 array(
-                    "amount" => $cart->total,
+                    "amount" => $cart->total * 100,
                     "purchase_order_id" => $cart->id,
                     "return_url" => route('khalti.response'),
                     "website_url" => route('home'),
@@ -73,6 +73,7 @@ class KhaltiController extends Controller
         try
         {
             $data = $request->all();
+            // dd($data);
             $r = array(
                 "pidx" => $data['pidx'],
             );

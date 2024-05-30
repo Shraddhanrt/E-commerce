@@ -37,6 +37,7 @@ Route::group(
         Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
+        Route::get('/wishlist/{id}',  [UserController::class, 'wishlistStore'])->name('wishlist.store');
         Route::post('/customers/store',  [UserController::class, 'customerStore'])->name('customer.store');
         Route::post('/khalti/store',  [KhaltiController::class, 'store'])->name('khalti.store');
         Route::get('/khalti/response',  [KhaltiController::class, 'response'])->name('khalti.response');
@@ -48,7 +49,7 @@ Route::prefix('admin')->group(
     {
         Route::get('login',  [AdminAuthController::class, 'index'])->name('admin.login.index');
         Route::post('login',  [AdminAuthController::class, 'login'])->name('admin.login.submit');
-        Route::post('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
+        Route::get('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
         Route::group(
             ['middleware' => 'admin'],
             function ()
