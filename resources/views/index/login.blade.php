@@ -57,8 +57,8 @@
                                 <input type="email" class="form-control" name="email" placeholder="Enter your email">
                             </div>
                             <div class="col-lg-6 mt-3">
-                                <label class="text-dark" for="password" name="password">Password</label>
-                                <input type="password" class="form-control" placeholder="Enter your password">
+                                <label class="text-dark" for="password" >Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter your password" >
                             </div>
                             <div class="submit text-center">
                                 <button type=" button" class="btn mt-4 btn-update-tools" style="width:40%;">Sign Up</button>
