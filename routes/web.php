@@ -48,7 +48,7 @@ Route::prefix('admin')->group(
     {
         Route::get('login',  [AdminAuthController::class, 'index'])->name('admin.login.index');
         Route::post('login',  [AdminAuthController::class, 'login'])->name('admin.login.submit');
-        Route::post('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
+        Route::get('logout',  [AdminAuthController::class, 'logout'])->name('admin.logout');
         Route::group(
             ['middleware' => 'admin'],
             function ()
