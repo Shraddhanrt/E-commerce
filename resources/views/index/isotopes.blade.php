@@ -16,6 +16,9 @@
                             <div class="container img_iso blu1 card"
                                 style="background-image: url('{{ asset($product->image) }}')">
                                 <div class="overlay">
+                                    <a href="#" class="wishlist-btn" type="button">
+                                        <i class="fa fa-heart wishlist-icon" style="color: white;"></i>
+                                    </a>
                                     <div class=" product-name  text">
                                         <a href="">{{ $product->name }}</a>
                                     </div>

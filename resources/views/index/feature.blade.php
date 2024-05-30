@@ -54,7 +54,8 @@
                 <div class="card-body">
                     <h5 class="card-title">CART TOTALS</h5>
                     <div class="cart-info">
-                        <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs 125</h6>
+                        <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs
+                            {{ $subtotal }}</h6>
                     </div>
                     <hr class="cart-divider" />
                     <div class="row">
@@ -117,7 +118,8 @@
                 </div>
                 <hr class="cart-divider" />
                 <div class="cart-info">
-                    <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal: Rs.225</h6>
+                    <h6 class="card-text mt-2 cart-label justify-content-center d-flex">Subtotal:Rs {{ $subtotal }}
+                    </h6>
                 </div>
                 <form action="{{ route('khalti.store') }}" method="post">
                     @csrf

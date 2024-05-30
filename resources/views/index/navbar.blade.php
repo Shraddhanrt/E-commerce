@@ -32,18 +32,18 @@
                         <div><i class="fa fa-light fa-search"></i></div>
                     </a>
                 </button>
-                @if(!Auth::user())
-                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                    <a class="icon" href="{{route('login')}}">
-                        <div><i class="fa fa-light fa-user"></i></div>
-                    </a>
-                </button>
+                @if (!Auth::user())
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                        <a class="icon" href="{{ route('login') }}">
+                            <div><i class="fa fa-light fa-user"></i></div>
+                        </a>
+                    </button>
                 @else
-                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                    <a class="icon" href="{{route('admin.logout')}}">
-                        <div><i class="fa fa-light fa-sign-out"></i></div>
-                    </a>
-                </button>
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                        <a class="icon" href="{{ route('admin.logout') }}">
+                            <div><i class="fa fa-light fa-sign-out"></i></div>
+                        </a>
+                    </button>
                 @endif
 
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
@@ -51,14 +51,16 @@
                         <div><i class=" fa fa-light fa-heart"></i></div>
                     </a>
                 </button>
-                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                    <a class="icon" href="{{ route('web.cart') }}"><i class="fa fa-light fa-cart-shopping test"></i>
-                        <span class=total> {{ $total }}</span></a>
-                </button>
-                {{-- <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                    <a class="icon" href="/login"><i class="fa fa-light fa-user"></i></a>
-                </button> --}}
+                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px; ">
+                    <a class="icon text-decoration-none position-relative" href="{{ route('web.cart') }}">
+                        <i class="fa fa-cart-shopping test"></i>
+                        <span class="badge badge-pill badge-danger position-absolute"
+                            style="top: -20px; right: -20px; background-color:rgb(215, 53, 53); color:aliceblue;">
+                            {{ DB::table('cart_items')->where('cart_id',DB::table('carts')->where('user_id', Auth::User()->id ?? null)->first()->id ?? null)->count() }}
 
+                        </span>
+                    </a>
+                </button>
             </div>
         </div>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
@@ -93,30 +95,28 @@
                             <div><i class="fa fa-light fa-search"></i></div>
                         </a>
                     </button>
-                    @if(!Auth::user())
-                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" href="{{route('login')}}">
-                            <div><i class="fa fa-light fa-user"></i></div>
-                        </a>
-                    </button>
+                    @if (!Auth::user())
+                        <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                            <a class="icon" href="{{ route('login') }}">
+                                <div><i class="fa fa-light fa-user"></i></div>
+                            </a>
+                        </button>
                     @else
-                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" href="{{route('admin.logout')}}">
-                            <div><i class="fa fa-light fa-sign-out"></i></div>
-                        </a>
-                    </button>
+                        <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                            <a class="icon" href="{{ route('admin.logout') }}">
+                                <div><i class="fa fa-light fa-sign-out"></i></div>
+                            </a>
+                        </button>
                     @endif
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="{{ route('web.wishlist') }}">
                             <div><i class="fa fa-light fa-heart"></i></div>
                         </a>
                     </button>
-                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" href="{{ route('web.cart') }}"><i
-                                class="fa fa-light fa-cart-shopping test">{{ $total }}</i></a>
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size:20px;">
+                        <a class="icon" style=" text-decoration:none" href="{{ route('web.cart') }}"><i
+                                class="fa fa-light fa-cart-shopping test"></i></a>
                     </button>
-
-
                 </div>
             </div>
         </div>

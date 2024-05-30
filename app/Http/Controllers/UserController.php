@@ -49,7 +49,7 @@ class UserController extends Controller
 
     public function getWishlist()
     {
-        dd("wishlist");
+        return view('index.wishlist');
     }
     public function getCart()
     {
@@ -60,8 +60,11 @@ class UserController extends Controller
             ->leftJoin('products', 'products.id', 'cart_items.product_id')
             ->get();
         // dd($products);
-        $customer = Customer::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();;
-        return view("index.feature", compact('total', 'products', 'customer'));
+        $subtotal = $products->sum('total');
+
+        $customer = Customer::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();
+
+        return view("index.feature", compact('total', 'products', 'customer', 'subtotal'));
     }
     public function customerStore(Request $request)
     {
