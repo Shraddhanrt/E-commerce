@@ -17,9 +17,11 @@ class ProductController extends Controller
 
         $products = Product::where('active', 1)->get();
         $featured = Product::where('active', 1)->where('featured', 1)->get();
-        $total = Cart::where('user_id', Auth::user()->id ?? Null)->count();
-
-
+        if (Auth::user())
+        {
+            $total = isset(Cart::where('user_id', Auth::user()->id)->first()->total_quantity);
+        }
+        $total = NULL;
         return view("welcome", compact('products', 'featured', 'total'));
     }
     public function about()
