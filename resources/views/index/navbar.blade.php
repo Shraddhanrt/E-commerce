@@ -40,10 +40,13 @@
                     </button>
                 @else
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" href="{{ route('admin.logout') }}">
+                        <a class="icon" onclick="event.preventDefault(); document.getElementById('logout-form-user').submit();">
                             <div><i class="fa fa-light fa-sign-out"></i></div>
                         </a>
                     </button>
+                    <form id="logout-form-user" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 @endif
 
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
@@ -102,11 +105,14 @@
                             </a>
                         </button>
                     @else
-                        <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                            <a class="icon" href="{{ route('admin.logout') }}">
-                                <div><i class="fa fa-light fa-sign-out"></i></div>
-                            </a>
-                        </button>
+                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                        <a class="icon" onclick="event.preventDefault(); document.getElementById('logout-form-user').submit();">
+                            <div><i class="fa fa-light fa-sign-out"></i></div>
+                        </a>
+                    </button>
+                    <form id="logout-form-user" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                     @endif
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="{{ route('web.wishlist') }}">
