@@ -37,6 +37,7 @@ Route::group(
         Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
+        Route::get('/wishlist/{id}',  [UserController::class, 'wishlistStore'])->name('wishlist.store');
         Route::post('/customers/store',  [UserController::class, 'customerStore'])->name('customer.store');
         Route::post('/khalti/store',  [KhaltiController::class, 'store'])->name('khalti.store');
         Route::get('/khalti/response',  [KhaltiController::class, 'response'])->name('khalti.response');

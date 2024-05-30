@@ -13,25 +13,28 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($wishlists as $wishlist)
+                    <tr>
+                        <td><img src="{{ asset($wishlist->image) }} " class="wishlist-product-img" alt="Product 1"></td>
+                        <td> {{ $wishlist->name }}</td>
+                        <td> {{ $wishlist->cost }}</td>
 
-                <tr>
-                    <td><img src=" " class="wishlist-product-img" alt="Product 1"></td>
-                    <td>Product Name 1</td>
-                    <td>Rs. 29.99</td>
-                    <td style="text-align: center;">
-                        <!-- Add to Cart Icon -->
-                        <a href="#" title="Add to Cart"
-                            style="color: rgb(127, 95, 157); padding: 8px; border-radius: 5px; background-color: transparent;">
-                            <i class="fa fa-cart-plus"></i>
-                        </a>
-                        <!-- Delete Icon -->
-                        <a href="#" title="Remove from Wishlist"
-                            style="color: rgb(127, 95, 157); padding: 8px; border-radius: 5px; background-color: transparent;">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    </td>
+                        <td style="text-align: center;">
+                            <!-- Add to Cart Icon -->
+                            <a href="{{ route('cart.store', ['id' => $wishlist->product_id]) }}" title="Add to Cart"
+                                style="color: rgb(127, 95, 157); padding: 8px; border-radius: 5px; background-color: transparent;">
+                                <i class="fa fa-cart-plus"></i>
+                            </a>
+                            <!-- Delete Icon -->
+                            <a href="{{ route('wishlist.store', ['id' => $wishlist->product_id]) }}"
+                                title="Remove from Wishlist"
+                                style="color: rgb(127, 95, 157); padding: 8px; border-radius: 5px; background-color: transparent;">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
 
-                </tr>
+                    </tr>
+                @endforeach
 
 
             </tbody>
