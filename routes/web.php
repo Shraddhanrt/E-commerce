@@ -34,7 +34,7 @@ Route::group(
     ['middleware' => 'web.login'],
     function ()
     {
-        Route::get('/user/wishliist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
+        Route::get('/user/wishlist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
         Route::get('/wishlist/{id}',  [UserController::class, 'wishlistStore'])->name('wishlist.store');

@@ -14,10 +14,11 @@
             </thead>
             <tbody>
                 @foreach ($wishlists as $wishlist)
-                    <tr>
-                        <td><img src="{{ asset($wishlist->image) }} " class="wishlist-product-img" alt="Product 1"></td>
+                    <tr style="font-size:23px">
+                        <td><img src="{{ asset($wishlist->image) }} " class="wishlist-product-img" alt="Product 1"
+                                style="height:4em;width:5em;"></td>
                         <td> {{ $wishlist->name }}</td>
-                        <td> {{ $wishlist->cost }}</td>
+                        <td>Rs. {{ $wishlist->cost }}</td>
 
                         <td style="text-align: center;">
                             <!-- Add to Cart Icon -->

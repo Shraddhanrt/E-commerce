@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Wishlist;
 use Auth;
 
 
@@ -16,13 +17,17 @@ class ProductController extends Controller
     {
 
         $products = Product::where('active', 1)->get();
+        // dd(Auth::id());
+        $wishlists = Wishlist::where('user_id', Auth::id())->get();
+        // dd($wishlists);
+
         $featured = Product::where('active', 1)->where('featured', 1)->get();
         if (Auth::user())
         {
             $total = isset(Cart::where('user_id', Auth::user()->id)->first()->total_quantity);
         }
         $total = NULL;
-        return view("welcome", compact('products', 'featured', 'total'));
+        return view("welcome", compact('products', 'featured', 'total', 'wishlists'));
     }
     public function about()
     {
