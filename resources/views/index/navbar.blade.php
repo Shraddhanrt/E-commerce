@@ -27,11 +27,7 @@
                 </li>
             </ul>
             <div class="navbar-text d-flex">
-                <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                    <a class="icon" href="#">
-                        <div><i class="fa fa-light fa-search"></i></div>
-                    </a>
-                </button>
+
                 @if (!Auth::user())
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="{{ route('login') }}">
@@ -40,18 +36,24 @@
                     </button>
                 @else
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" onclick="event.preventDefault(); document.getElementById('logout-form-user').submit();">
+                        <a class="icon"
+                            onclick="event.preventDefault(); document.getElementById('logout-form-user').submit();">
                             <div><i class="fa fa-light fa-sign-out"></i></div>
                         </a>
                     </button>
-                    <form id="logout-form-user" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form-user" action="{{ route('admin.logout') }}" method="POST"
+                        style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 @endif
 
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                     <a class="icon" href="{{ route('web.wishlist') }}">
-                        <div><i class=" fa fa-light fa-heart"></i></div>
+                        <i class=" fa fa-light fa-heart"></i>
+                        <span class="badge badge-pill badge-danger position-absolute"
+                            style="top: 4px; right: 95px; background-color:rgb(215, 53, 53); color:aliceblue;">
+                            {{ DB::table('wishlists')->where('user_id', Auth::User()->id ?? null)->count() }}
+                        </span>
                     </a>
                 </button>
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px; ">
@@ -105,14 +107,16 @@
                             </a>
                         </button>
                     @else
-                    <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
-                        <a class="icon" onclick="event.preventDefault(); document.getElementById('logout-form-user').submit();">
-                            <div><i class="fa fa-light fa-sign-out"></i></div>
-                        </a>
-                    </button>
-                    <form id="logout-form-user" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                        <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
+                            <a class="icon"
+                                onclick="event.preventDefault(); document.getElementById('logout-form-user').submit();">
+                                <div><i class="fa fa-light fa-sign-out"></i></div>
+                            </a>
+                        </button>
+                        <form id="logout-form-user" action="{{ route('admin.logout') }}" method="POST"
+                            style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     @endif
                     <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                         <a class="icon" href="{{ route('web.wishlist') }}">

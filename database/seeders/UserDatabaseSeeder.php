@@ -27,10 +27,8 @@ class UserDatabaseSeeder extends Seeder
             'firstname' => 'shraddha',
             'lastname' => 'regmi',
             'email' => 'shraddha@gmail.com',
-            'role' => 'admin',
+            'role' => 'customer',
             'password' => Hash::make('admin')
         ]);
-        
-        
     }
 }
