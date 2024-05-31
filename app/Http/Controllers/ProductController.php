@@ -25,9 +25,12 @@ class ProductController extends Controller
         if (Auth::user())
         {
             $total = isset(Cart::where('user_id', Auth::user()->id)->first()->total_quantity);
+            $wishlist = Wishlist::where('user_id', Auth::user()->id)->count();
+            // dd($wishlist);
         }
         $total = NULL;
-        return view("welcome", compact('products', 'featured', 'total', 'wishlists'));
+        $wishlist = NULL;
+        return view("welcome", compact('products', 'featured', 'total', 'wishlists', 'wishlist'));
     }
     public function about()
     {
@@ -35,7 +38,10 @@ class ProductController extends Controller
     }
     public function shop()
     {
-        return view("index.shop");
+        $products = Product::all();
+        $wishlists = Wishlist::all();
+
+        return view("index.shop", compact('products', 'wishlists'));
     }
     // public function features()
     // {

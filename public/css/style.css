@@ -1264,6 +1264,3 @@ footer a {
 .wishlist-icon:hover {
     color: rgb(232, 29, 250) !important;
 }
-.wishlist-icon.clicked {
-    color: rgb(232, 29, 250);
-}

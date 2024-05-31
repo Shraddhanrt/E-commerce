@@ -203,17 +203,17 @@
     </div>
 </div> --}}
 
-<section id="Projects">
+{{-- <section id="Projects">
     <div class= "container shop-container">
         <div class="row">
-            {{-- Menu Link --}}
+          
             <div class="col-md-2 items-links">
                 <span class="item-link menu-active" data-name="all">All </span>
                 <span class="item-link"data-name="men">Men </span>
                 <span class="item-link"data-name="women">Women </span>
                 <span class="item-link"data-name="shoes">Shoes </span>
             </div>
-            {{-- Filter Images --}}
+      
             <div class=" col-md-10 gallery shop-gallery">
                 <div class="shop-img " data-name="men">
                     <img src="{{ asset('images\product-11.jpg.webp') }}" alt="men">
@@ -223,13 +223,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                              
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                          
                                 
 
                             </div>
@@ -245,13 +245,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                        
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                           
                             </div>
 
                         </div>
@@ -265,13 +265,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                       
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                          
                             </div>
 
                         </div>
@@ -285,13 +285,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                           
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                            
                             </div>
 
                         </div>
@@ -306,13 +306,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                                
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                            
                             </div>
 
                         </div>
@@ -326,7 +326,7 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                                
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
@@ -346,13 +346,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                            
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                            
                             </div>
                         </div>
 
@@ -366,13 +366,13 @@
                                 $50.00
                             </div>
                             <div class="col-md-7 col-12">
-                                <!-- Button trigger modal -->
+                                
                                 <button type="button" class="btn  shadow-none" data-toggle="modal"
                                     data-target="#exampleModalLong1">
                                     <i class="fa fa-light fa-cart-shopping" style="padding-right: 5px"></i>Add
                                     To
                                     Cart</button>
-                                <!-- Modal -->
+                                
                             </div>
 
                         </div>
@@ -381,24 +381,27 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
+<div style="margin-top: 100px">
+    @include('index.isotopes')
+</div>
 @include('footer.footer')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Handle click on menu links
+        
         $('.item-link').on('click', function() {
-            var filter = $(this).data('name'); // Get the value of data-name attribute
+            var filter = $(this).data('name'); 
             if (filter === 'all') {
-                $('.shop-img').show(); // Show all images if 'All' is clicked
+                $('.shop-img').show(); 
             } else {
-                $('.shop-img').hide(); // Hide all images
+                $('.shop-img').hide(); 
                 $('.shop-img[data-name="' + filter + '"]')
-                    .show(); // Show images with data-name attribute matching the clicked link
+                    .show(); 
             }
-            // Update active class
+          
             $('.item-link').removeClass('menu-active');
             $(this).addClass('menu-active');
         });
     });
-</script>
+</script> --}}

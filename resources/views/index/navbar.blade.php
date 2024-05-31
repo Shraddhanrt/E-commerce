@@ -49,7 +49,11 @@
 
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px;">
                     <a class="icon" href="{{ route('web.wishlist') }}">
-                        <div><i class=" fa fa-light fa-heart"></i></div>
+                        <i class=" fa fa-light fa-heart"></i>
+                        <span class="badge badge-pill badge-danger position-absolute"
+                            style="top: 4px; right: 95px; background-color:rgb(215, 53, 53); color:aliceblue;">
+                            {{ DB::table('wishlists')->where('user_id', Auth::User()->id ?? null)->count() }}
+                        </span>
                     </a>
                 </button>
                 <button class="btn btn-outline-none shadow-none mx-2 border-0" style="font-size: 20px; ">
