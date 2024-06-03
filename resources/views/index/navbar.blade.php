@@ -22,9 +22,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">About</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-                </li>
+                </li> --}}
             </ul>
             <div class="navbar-text d-flex">
 
@@ -51,7 +51,7 @@
                     <a class="icon" href="{{ route('web.wishlist') }}">
                         <i class=" fa fa-light fa-heart"></i>
                         <span class="badge badge-pill badge-danger position-absolute"
-                            style="top: 4px; right: 95px; background-color:rgb(215, 53, 53); color:aliceblue;">
+                            style="top: 10px; right: 95px; background-color:rgb(154,77,227); color:aliceblue;">
                             {{ DB::table('wishlists')->where('user_id', Auth::User()->id ?? null)->count() }}
                         </span>
                     </a>
@@ -60,7 +60,7 @@
                     <a class="icon text-decoration-none position-relative" href="{{ route('web.cart') }}">
                         <i class="fa fa-cart-shopping test"></i>
                         <span class="badge badge-pill badge-danger position-absolute"
-                            style="top: -20px; right: -20px; background-color:rgb(215, 53, 53); color:aliceblue;">
+                            style="top: -20px; right: -20px; background-color:rgb(154,77,227); color:aliceblue;">
                             {{ DB::table('cart_items')->where('cart_id',DB::table('carts')->where('user_id', Auth::User()->id ?? null)->first()->id ?? null)->count() }}
 
                         </span>

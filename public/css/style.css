@@ -23,7 +23,7 @@ body {
 
 .nav-link {
     font-family: "Poppins-Medium" !important;
-    font-size: 17px;
+    font-size: 23px;
     color: #333;
     padding: 5px 0px;
     margin: 0 1rem;
@@ -56,7 +56,7 @@ body {
 
 .navbar-brand {
     font-family: "Pacifico";
-    font-size: 1.6rem !important;
+    font-size: 2rem !important;
     color: rgb(147, 72, 182) !important;
     padding-left: 0em !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);

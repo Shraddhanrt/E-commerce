@@ -57,7 +57,7 @@ class UserController extends Controller
         }
         $total = NULL;
         $products = Cart::where('user_id', Auth::user()->id)
-            ->select('cart_items.quantity', 'cart_items.total', 'products.name', 'products.cost', 'products.image')
+            ->select('cart_items.id', 'cart_items.quantity', 'cart_items.total', 'products.name', 'products.cost', 'products.image')
             ->leftJoin('cart_items', 'carts.id', 'cart_items.cart_id')
             ->leftJoin('products', 'products.id', 'cart_items.product_id')
             ->get();
@@ -170,5 +170,11 @@ class UserController extends Controller
             ->leftJoin('products', 'products.id', 'wishlists.product_id')
             ->get();
         return view('index.wishlist', compact('wishlists'));
+    }
+
+    public function deleteCart($cartId)
+    {
+        CartItem::where('id', $cartId)->delete();
+        return redirect()->back()->with('success', 'Item deleted successfully!!');
     }
 }

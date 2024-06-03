@@ -67,4 +67,11 @@ class ProductController extends Controller
     {
         return view('index.cart');
     }
+    public function productShow($id)
+    {
+        $product = Product::findOrFail($id);
+        $wishlists = auth()->user() ? auth()->user()->wishlists : collect();
+
+        return view('index.productShow', compact('product', 'wishlists'));
+    }
 }

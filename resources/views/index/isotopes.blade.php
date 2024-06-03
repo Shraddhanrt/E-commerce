@@ -30,8 +30,10 @@
                                         @endif
                                     </a>
                                     <div class="product-name text">
-                                        <a href="">{{ $product->name }}</a>
+                                        <a
+                                            href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->name }}</a>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="card-footer iso-foot card-iso bg-transparent border-secondary">

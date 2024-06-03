@@ -20,29 +20,38 @@
                             <th scope="col" class="text-center">Price</th>
                             <th scope="col" class="text-center">Quantity</th>
                             <th scope="col" class="text-center">Total</th>
+                            <th scope="col" class="text-center">Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                            <tr>
-                                <td scope="row">
-                                    <div class="fre-img">
+                            @if ($products[0]->id > 0)
+                                <tr>
+                                    <td scope="row">
+                                        <div class="fre-img">
 
-                                        <img src="{{ asset($product->image) }}" style="height: 5em; width:5em">
-                                        <span
-                                            style=" font-size: 15px; color: rgb(71, 67, 67); font-style: Times New Roman;">{{ $product->name }}</span>
-                                    </div>
-                                </td>
-                                <td style="vertical-align: middle;">{{ $product->cost }}</td>
-                                <td style="vertical-align: middle;">
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        {{ $product->quantity }}
-
-                                    </div>
-                                </td>
-                                <td style="vertical-align: middle;"> {{ $product->total }}
-                                </td>
-                            </tr>
+                                            <img src="{{ asset($product->image) }}" style="height: 5em; width:5em">
+                                            <span
+                                                style=" font-size: 15px; color: rgb(71, 67, 67); font-style: Times New Roman;">{{ $product->name }}</span>
+                                        </div>
+                                    </td>
+                                    {{-- @dd($product) --}}
+                                    <td style="vertical-align: middle;">{{ $product->cost }}</td>
+                                    <td style="vertical-align: middle;">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            {{ $product->quantity }}
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align: middle;"> {{ $product->total }}
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        <a href="{{ route('web.cart.delete', ['id' => $product->id]) }}"><i
+                                                class="fa fa-trash"
+                                                style="color:rgb(154,77,227); font-size:23px"></i></a>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

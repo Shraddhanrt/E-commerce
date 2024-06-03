@@ -29,6 +29,7 @@ Route::get('/contact', [ProductController::class, 'contact'])->name('contact');
 Route::get('/blog', [ProductController::class, 'blog'])->name('blog');
 Route::get('/blog.details', [ProductController::class, 'showDetails'])->name('details');
 Route::post('/users/sign-up',  [UserController::class, 'store'])->name('user.store');
+Route::get('/product/{id}', [ProductController::class, 'productShow'])->name('product.show');
 
 Route::group(
     ['middleware' => 'web.login'],
@@ -36,6 +37,7 @@ Route::group(
     {
         Route::get('/user/wishlist',  [UserController::class, 'getWishlist'])->name('web.wishlist');
         Route::get('/user/cart',  [UserController::class, 'getCart'])->name('web.cart');
+        Route::get('/user/cart/delete/{id}',  [UserController::class, 'deleteCart'])->name('web.cart.delete');
         Route::get('/add-to-cart/{id}',  [UserController::class, 'cartStore'])->name('cart.store');
         Route::get('/wishlist/{id}',  [UserController::class, 'wishlistStore'])->name('wishlist.store');
         Route::post('/customers/store',  [UserController::class, 'customerStore'])->name('customer.store');
